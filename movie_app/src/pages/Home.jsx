@@ -5,7 +5,6 @@ import "../css/Home.css";
 
 function Home() {
   const [searchQuery, setSearchQuery] = useState("");
-
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -32,15 +31,14 @@ function Home() {
 
     setLoading(true);
     try {
-        const searchResults = await searchMovies(searchQuery);
-        setMovies(searchResults);
-        setError(null);
+      const searchResults = await searchMovies(searchQuery);
+      setMovies(searchResults);
+      setError(null);
     } catch (err) {
-        console.log(err);
-        setError("Failed to search movies...");
-    }
-    finally {
-        setLoading(false);
+      console.log(err);
+      setError("Failed to search movies...");
+    } finally {
+      setLoading(false);
     }
   };
 
